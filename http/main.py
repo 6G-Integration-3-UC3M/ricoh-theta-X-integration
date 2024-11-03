@@ -28,7 +28,7 @@ ffmpeg_cmd = [
     '-s', f'{frame_width}x{frame_height}',  # Input resolution
     '-r', str(fps),  # Input framerate
     '-i', '-',  # Input from stdin
-    '-c:v', 'mpeg4',  # CUDA-based encoding using NVENC
+    '-c:v', 'libx265',  # CUDA-based encoding using NVENC
     '-preset', 'ultrafast',  # NVENC encoding preset
     '-f', 'mpegts',  # MPEG transport stream format
     '-'  # Output to stdout (pipe to Flask)
