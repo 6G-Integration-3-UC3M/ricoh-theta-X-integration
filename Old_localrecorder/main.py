@@ -1,7 +1,9 @@
 import cv2
 
 # Initialize the camera
-video_capture = cv2.VideoCapture( "thetauvcsrc mode=4K ! queue! h264parse! nvv4l2decoder ! queue ! nvvidconv ! video/x-raw,format=BGRx ! queue ! videoconvert ! video/x-raw,format=BGR ! queue ! appsink")
+video_capture = cv2.VideoCapture(
+    "thetauvcsrc mode=4K ! queue! h264parse! nvv4l2decoder ! queue ! nvvidconv ! video/x-raw,format=BGRx ! queue ! videoconvert ! video/x-raw,format=BGR ! queue ! appsink"
+)
 
 # Set the video resolution to 4K (3840x2160)
 video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 3840)
