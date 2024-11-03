@@ -29,8 +29,8 @@ ffmpeg_cmd = [
     '-s', f'{frame_width}x{frame_height}',  # Input resolution
     '-r', str(fps),  # Input framerate
     '-i', '-',  # Input from stdin (piped from OpenCV)
-    '-c:v', 'h264_v4l2m2m',  # Use NVIDIA NVENC for H.265 encoding
-    '-preset', 'fast',  # Encoding preset (options: slow, medium, fast)
+    '-c:v', 'libx265',  # Use NVIDIA NVENC for H.265 encoding
+    '-preset', 'ultrafast',  # Encoding preset (options: slow, medium, fast)
     '-b:v', '5M',  # Set video bitrate (adjust as needed)
     '-maxrate', '5M',  # Set max video bitrate
     '-bufsize', '10M',  # Buffer size for rate control
