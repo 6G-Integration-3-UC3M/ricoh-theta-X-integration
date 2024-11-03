@@ -6,13 +6,14 @@ video_capture = cv2.VideoCapture(
 )
 
 # Set the video resolution to 4K (3840x2160)
-video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 3840)
-video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 2160)
+frame_width = int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
+frame_height = int(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = float(video_capture.get(cv2.CAP_PROP_FPS))
 
 # Define the codec and create VideoWriter object
 # 'XVID' for AVI or 'mp4v' for MP4.
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Use 'mp4v' for MP4
-out = cv2.VideoWriter('output_4K.mp4', fourcc, 20.0, (3840, 2160))
+out = cv2.VideoWriter('output_4K.mp4', fourcc, fps, (frame_width, frame_height))
 
 while video_capture.isOpened():
     ret, frame = video_capture.read()
